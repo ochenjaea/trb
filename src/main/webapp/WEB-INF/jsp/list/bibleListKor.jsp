@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ include file="/WEB-INF/jsp/include/taglib.jsp"%>
+<script type="text/javascript">
+<!--
+	$(document).ready(function() {
+		
+		
+	});
+//-->
+</script>
+
+	<div data-role = "page" id="home" data-theme="a">
+			<div data-role="header" data-theme="a">
+			<a href="#" data-role="button" data-rel="back" data-icon="arrow-l">뒤로</a>
+				<h1>선택</h1>
+			<a href="#" onclick="home()" data-icon="home">홈</a>
+			</div>
+			<div data-role="content">
+		
+				<div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>구약</h3>
+						<ul data-role="listview" data-filter="true" data-inset="true">
+							<c:forEach items="${bibleListKorListMap}" var="list" begin="0" end="38">
+								<li><a href="#" onclick = "bibleNumListKor(${list.number})"> ${list.human} : ${list.abbr} <span class="ui-li-count">${list.chapters}</span></a></li>
+							</c:forEach>
+						</ul>
+					</div>
+					
+					<div data-role="collapsible">
+						<h3>신약</h3>
+						<ul data-role="listview" data-filter="true" data-inset="true">
+							<c:forEach items="${bibleListKorListMap}" var="list" begin="39" end="65">
+								<li><a href="#" onclick = "bibleNumListKor(${list.number})"> ${list.human} : ${list.abbr} <span class="ui-li-count">${list.chapters}</span></a></li>
+							</c:forEach>
+						</ul>
+					</div>							
+				</div>
+			</div>
+		</div>
+		

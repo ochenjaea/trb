@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+
+<!--=============================================================================================
+     Static Layout Template
+=================================================================================================-->    
+    <definition name="defaultTemplate" template="/WEB-INF/jsp/template/defaultTemplate.jsp">
+    	<put-attribute name="header" value="/WEB-INF/jsp/include/header.jsp"/>
+    	<put-attribute name="top" value="/WEB-INF/jsp/include/top.jsp"/>
+    </definition>
+    
+	<definition name="ajax/service" template="/WEB-INF/jsp/blank.jsp" />
+	
+	<definition name="denied" template="/WEB-INF/jsp/denied.jsp" />
+	
+	<definition name="gridEdit" template="/WEB-INF/jsp/blank.jsp" />
+	
+	<definition name="login" template="/WEB-INF/jsp/login/login.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/include/header.jsp"/>
+	</definition>	
+	
+	<definition name="main" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/main/dashboard.jsp" />
+	</definition>
+
+	<definition name="error" template="/WEB-INF/jsp/error.jsp" />
+</tiles-definitions>

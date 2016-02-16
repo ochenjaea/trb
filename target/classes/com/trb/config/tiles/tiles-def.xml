@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+
+<!--=============================================================================================
+     Static Layout Template
+=================================================================================================-->    
+    <definition name="defaultTemplate" template="/WEB-INF/jsp/template/defaultTemplate.jsp">
+    	<put-attribute name="header" value="/WEB-INF/jsp/include/header.jsp"/>
+    </definition>
+  	
+	<definition name="main" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/main/main.jsp"/>
+	</definition>
+	
+	<definition name="word" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/word/word.jsp"/>
+	</definition>
+	
+	<definition name="search" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/word/search.jsp"/>
+	</definition>
+	
+	<definition name="etc" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/etc/etc.jsp"/>
+	</definition>
+	
+	<definition name="etc2" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/etc/etc2.jsp"/>
+	</definition>
+	
+	<definition name="etc3" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/etc/etc3.jsp"/>
+	</definition>
+	
+	<definition name="listLng" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/list/listLag.jsp"/>
+	</definition>
+	
+	<definition name="bibleListKor" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/list/bibleListKor.jsp"/>
+	</definition>
+	
+	<definition name="bibleListEng" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/list/bibleListEng.jsp"/>
+	</definition>
+	
+	<definition name="bibleListKEng" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/list/bibleListKEng.jsp"/>
+	</definition>
+	
+	<definition name="bibleNumList" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/list/bibleNumList.jsp"/>
+	</definition>
+	
+	<definition name="korContent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/content/korContent.jsp"/>
+	</definition>
+	<definition name="engContent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/content/engContent.jsp"/>
+	</definition>
+	<definition name="kengContent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/content/kengContent.jsp"/>
+	</definition>
+	
+	<definition name="korBigContent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/content/korBigContent.jsp"/>
+	</definition>
+	<definition name="engBigContent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/content/engBigContent.jsp"/>
+	</definition>
+	<definition name="kengBigContent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/content/kengBigContent.jsp"/>
+	</definition>
+	
+	<definition name="korPopup" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pop/korPopup.jsp"/>
+	</definition>
+	
+	<definition name="engPopup" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pop/engPopup.jsp"/>
+	</definition>
+	
+    <definition name="layout" template="/WEB-INF/jsp/layout/layout.jsp">
+    	<put-attribute name="header" value="/WEB-INF/jsp/include/header.jsp"/>    	
+    </definition>
+    
+	<definition name="ajax/service" template="/WEB-INF/jsp/blank.jsp" />
+	
+	<definition name="denied" template="/WEB-INF/jsp/denied.jsp" />
+	
+	<definition name="gridEdit" template="/WEB-INF/jsp/blank.jsp" />
+	
+	<definition name="login" template="/WEB-INF/jsp/login/login.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/include/header.jsp"/>
+	</definition>	
+	
+	<definition name="loginInsert" template="/WEB-INF/jsp/customer/loginInsert.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/include/header.jsp"/>
+	</definition>
+		
+	<definition name="test1" extends="layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/main/dashboard.jsp" />
+	</definition>
+
+	<definition name="error" template="/WEB-INF/jsp/error.jsp" />
+	<definition name="top" template="/WEB-INF/jsp/include/top.jsp" />
+</tiles-definitions>

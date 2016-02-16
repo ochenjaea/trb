@@ -1,0 +1,16 @@
+#menu-popup {
+    right: 0;
+    left: auto !important;
+}
+#menu {
+    width: 200px;
+    height:100%;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: -1px 0;
+}
+#menu .ui-btn {
+    margin: 2em 15px;
+}
+

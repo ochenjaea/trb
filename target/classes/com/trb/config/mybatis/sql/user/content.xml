@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trb.content">
+    <select id="content" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	SELECT
+    		H.ID,H.BOOK,H.VERSE,H.HTML,H.HTML_ENG,V.UNFORMATTED,V.UNFORMATTED_ENG 
+		FROM
+			VERSES_HTML AS H
+		JOIN 
+			VERSES AS V ON H.ID = V.ID 
+		WHERE 
+			
+		<choose>
+				<when test = "VERSE != null">
+				    H.BOOK = #{BOOK} 
+					AND H.VERSE LIKE #{VERSE}||'%' 
+				</when>
+				<when test = "LIST != null">
+				    H.ID IN
+					 <foreach item="item" index="index" collection="LIST" open="(" separator="," close=")">
+			      	  #{item}
+				 	</foreach>
+				</when>
+			</choose>
+				 	
+				 
+		ORDER BY H.ID
+    </select>
+   
+  <select id="prenext" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+   		SELECT OSIS,HUMAN,PRE_OSIS,PRE_HUMAN,NEXT_OSIS,NEXT_HUMAN FROM CHAPTERS WHERE OSIS = #{OSIS}
+   </select> 
+   <select id="checkosis" parameterType ="java.util.HashMap" resultType="java.util.HashMap">
+   		SELECT NUMBER FROM BOOKS WHERE OSIS = #{BOOK}
+   </select>
+   
+   <select id="word" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	SELECT V.BOOK,B.HUMAN,V.VERSE,RTRIM(V.VERSE,'.'), V.UNFORMATTED,H.HTML FROM VERSES AS V 
+			JOIN BOOKS AS B ON B.OSIS = V.BOOK
+			JOIN VERSES_HTML AS H ON H.ID = V.ID
+		WHERE REPLACE(V.UNFORMATTED,' ','') LIKE  '%'||#{WORD}||'%'
+    </select>
+    <select id="count" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+         SELECT COUNT(B.HUMAN),B.HUMAN FROM VERSES AS V 
+			JOIN BOOKS AS B ON B.OSIS = V.BOOK
+		WHERE REPLACE(V.UNFORMATTED,' ','') LIKE '%'||#{WORD}||'%'
+			GROUP BY B.HUMAN
+			ORDER BY B.NUMBER
+        
+    </select>
+    
+    <select id="korpop" parameterType="java.util.HashMap" resultType = "java.util.HashMap">
+        SELECT 
+        	V.ID
+        	,V.BOOK
+        	,B.HUMAN
+        	,V.VERSE
+        	,V.UNFORMATTED
+        	,V.UNFORMATTED_ENG
+        FROM 
+        	VERSES AS V
+			JOIN BOOKS AS B ON B.OSIS = V.BOOK
+		WHERE 
+			V.ID = #{ID}
+        
+    </select>
+</mapper>
